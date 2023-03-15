@@ -18,7 +18,7 @@ const fields = {
     name: 'password',
     required: true,
     label: 'User password',
-    placeholder: 'User password',
+    placeholder: 'The minimum allowed length is 7 symbol',
   },
 };
 

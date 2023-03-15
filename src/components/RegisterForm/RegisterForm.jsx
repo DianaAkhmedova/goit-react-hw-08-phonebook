@@ -1,5 +1,6 @@
 import TextField from 'shared/components/TextField/TextField';
 import Button from 'shared/components/Button/Button';
+import Form from 'shared/components/Form/Form';
 
 import useForm from 'shared/hooks/useForm';
 
@@ -14,7 +15,7 @@ const RegisterForm = ({ onSubmit }) => {
   const { name, email, password } = state;
 
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <TextField value={name} handleChange={handleChange} {...fields.name} />
       <TextField value={email} handleChange={handleChange} {...fields.email} />
       <TextField
@@ -23,7 +24,7 @@ const RegisterForm = ({ onSubmit }) => {
         {...fields.password}
       />
       <Button>Register</Button>
-    </form>
+    </Form>
   );
 };
 

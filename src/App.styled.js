@@ -4,7 +4,6 @@ export const PhonebookContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px;
 `;
 
 export const PhonebookTitle = styled.h1`

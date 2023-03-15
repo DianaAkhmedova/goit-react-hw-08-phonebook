@@ -1,12 +1,11 @@
-import { useMemo } from 'react';
-import { nanoid } from 'nanoid';
+import { Input } from './TextField.styled';
 
 const TextField = ({ label, handleChange, ...props }) => {
-  const id = useMemo(() => nanoid(), []);
   return (
     <div>
-      <label htmlFor={id}>{label}</label>
-      <input id={id} onChange={handleChange} {...props} />
+      <label>
+        {label} <Input onChange={handleChange} {...props} />
+      </label>
     </div>
   );
 };

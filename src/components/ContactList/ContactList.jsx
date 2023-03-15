@@ -6,12 +6,12 @@ import ContactListItem from './ContactListItem/ContactListItem';
 const ContactList = () => {
   const contacts = useSelector(getFilteredContacts);
 
-  const contactsItem = contacts.map(({ id, name, phone }) => (
+  const contactsItem = contacts.map(({ id, name, number }) => (
     <ContactListItem
       key={id}
       id={id}
       name={name}
-      number={phone}
+      number={number}
       type="button"
     />
   ));

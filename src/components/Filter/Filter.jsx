@@ -7,7 +7,7 @@ import {
   Form,
   FormLabel,
   FormInput,
-} from 'modules/ContactForm/ContactForm.styled';
+} from 'components/ContactForm/ContactForm.styled';
 
 const Filter = () => {
   const filterValue = useSelector(getFilter);

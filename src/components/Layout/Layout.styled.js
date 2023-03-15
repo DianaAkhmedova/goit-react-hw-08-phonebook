@@ -12,6 +12,11 @@ export const Main = styled.main`
   padding: 0px 0;
 `;
 
+export const Section = styled.section`
+  padding-top: 40px;
+  padding-bottom: 40px;
+`;
+
 export const Container = styled.div`
   padding-left: 70px;
   padding-right: 70px;
