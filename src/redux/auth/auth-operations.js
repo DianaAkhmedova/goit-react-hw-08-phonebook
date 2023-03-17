@@ -1,4 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 import {
   userSignup,
   userLogin,
@@ -11,9 +14,17 @@ export const signup = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const result = await userSignup(data);
+
       return result;
     } catch ({ response }) {
-      return rejectWithValue(response);
+      const { code } = response.data;
+      if (response.status === 400 && code === 11000) {
+        Notify.failure('User with this email already exists.');
+      } else if (response.status === 400) {
+        Notify.failure('User creation error.');
+      } else if (response.status === 500) {
+        Notify.failure('Server error.');
+      } else return rejectWithValue(response);
     }
   }
 );
@@ -25,6 +36,9 @@ export const login = createAsyncThunk(
       const result = await userLogin(data);
       return result;
     } catch ({ response }) {
+      if (response.status === 400) {
+        Notify.failure('Email or password is incorrect.');
+      }
       rejectWithValue(response);
     }
   }
