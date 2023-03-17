@@ -1,10 +1,23 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import {
   getAllContacts,
   addContact,
   deleteContact,
 } from 'shared/services/contacts-api';
+
+Notify.init({
+  width: '280px',
+  position: 'center-center',
+  success: {
+    background: '#00ced2',
+  },
+  failure: {
+    background: '#00ced2',
+    notiflixIconColor: '#ff420e',
+  },
+});
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
@@ -23,6 +36,8 @@ export const fetchAddContact = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const result = await addContact(data);
+      Notify.success(`${data.name} is added in my contacts`);
+
       return result;
     } catch ({ response }) {
       return thunkAPI.rejectWithValue(response.data);
@@ -31,12 +46,13 @@ export const fetchAddContact = createAsyncThunk(
   {
     condition: (data, { getState }) => {
       const { contacts } = getState();
+
       const isContainsContact = contacts.items.some(
         ({ name }) => name.toLowerCase() === data.name.toLowerCase()
       );
 
       if (isContainsContact) {
-        alert(`${data.name} is already in contacts`);
+        Notify.failure(`Oops, ${data.name} is already in my contacts`);
         return false;
       }
     },

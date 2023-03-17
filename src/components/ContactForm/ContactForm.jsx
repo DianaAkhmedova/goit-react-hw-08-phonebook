@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
+
 import useForm from 'shared/hooks/useForm';
 
+import Form from 'shared/components/Form/Form';
 import TextField from 'shared/components/TextField/TextField';
-import { Btn } from 'shared/components/Button/Button.styled';
-
-import { Form, FormLabel, FormInput } from './ContactForm.styled';
+import Button from 'shared/components/Button/Button';
 
 import initialState from './initialState';
 import fields from './fields';
@@ -24,8 +25,12 @@ const ContactForm = ({ onSubmit }) => {
         {...fields.number}
       />
 
-      <Btn type="submit">Add contact</Btn>
+      <Button type="submit">Add contact</Button>
     </Form>
   );
 };
 export default ContactForm;
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

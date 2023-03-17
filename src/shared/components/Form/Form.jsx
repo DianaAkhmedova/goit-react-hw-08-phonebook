@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { StyledForm } from './Form.styled';
 
 const Form = ({ onSubmit, children }) => {
@@ -5,3 +6,7 @@ const Form = ({ onSubmit, children }) => {
 };
 
 export default Form;
+
+Form.propTypes = {
+  onSubmit: PropTypes.func,
+};

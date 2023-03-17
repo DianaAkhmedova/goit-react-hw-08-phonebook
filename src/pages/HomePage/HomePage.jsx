@@ -1,13 +1,18 @@
-import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import ContactForm from 'components/ContactForm/ContactForm';
+import { VisuallyHidden } from '@reach/visually-hidden';
 
-import { fetchContacts } from 'redux/contacts/contacts-operations';
+import ContactForm from 'components/ContactForm/ContactForm';
+import ContactsPage from 'pages/ContactsPage/ContactsPage';
+
 import { isUserLogin } from 'redux/auth/auth-selectors';
 import { fetchAddContact } from 'redux/contacts/contacts-operations';
 
-import { PhonebookContainer, PhonebookTitle } from '../../App.styled';
+import {
+  PhonebookContainer,
+  PhonebookTitle,
+  TextWrapper,
+} from './HomePage.styled';
+import { Link } from 'components/Auth/Auth.styled';
 
 const HomePage = () => {
   const isLogin = useSelector(isUserLogin);
@@ -17,22 +22,23 @@ const HomePage = () => {
     dispatch(fetchAddContact(contact));
   };
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
   return (
     <>
       {!isLogin ? (
-        <div style={{ textAlign: 'center' }}>
+        <TextWrapper>
           If you want to use the Phonebook,{' '}
-          <Link to={'/register'}>register</Link> or{' '}
-          <Link to={'/login'}>login</Link>
-        </div>
+          <Link to={'/register'} style={{ margin: 0 }}>
+            register
+          </Link>{' '}
+          or <Link to={'/login'}>login</Link>
+        </TextWrapper>
       ) : (
         <PhonebookContainer>
-          <PhonebookTitle>Phonebook</PhonebookTitle>
+          <PhonebookTitle>Welcome to the Phonebook!</PhonebookTitle>
           <ContactForm onSubmit={handleAddContact} />
+          <VisuallyHidden>
+            <ContactsPage />
+          </VisuallyHidden>
         </PhonebookContainer>
       )}
     </>

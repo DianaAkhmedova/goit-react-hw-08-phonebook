@@ -15,13 +15,15 @@ export const Link = styled(NavLink)`
 
   &:hover,
   :focus {
-    color: #0d0c22;
-    text-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
-      0px 2px 1px rgb(0 0 0 / 20%);
+    color: white;
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #00bdc3,
+      0 0 82px #00bdc3, 0 0 92px #00bdc3, 0 0 102px #00bdc3, 0 0 151px #00bdc3;
   }
   &.active {
-    color: #0d0c22;
-    text-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
-      0px 2px 1px rgb(0 0 0 / 20%);
+    color: white;
+    text-shadow: rgb(255, 255, 255) 0px 0px 14px, rgb(255, 255, 255) 0px 0px 0px,
+      rgb(255, 255, 255) 0px 0px 1px, rgb(0, 189, 195) 0px 0px 0px,
+      rgb(0, 189, 195) 0px 0px 0px, rgb(0, 189, 195) 0px 0px 0px,
+      rgb(0, 189, 195) 0px 0px 0px, rgb(0, 189, 195) 0px 0px 0px;
   }
 `;

@@ -8,8 +8,11 @@ export const StyledForm = styled.form`
   margin-right: auto;
   width: 400px;
   padding: 20px;
-  margin-bottom: 20px;
-  border: 1px solid #000;
+  margin-bottom: 30px;
+  border: none;
   border-radius: 5px;
-  background-color: #ccd4d8;
+  background-color: #222;
+  box-shadow: 0px 1px 2px rgba(0, 255, 255, 0.5),
+    0px 2px 4px rgba(0, 255, 255, 0.5), 0px 4px 8px rgba(0, 255, 255, 0.5),
+    0px 8px 16px rgba(0, 255, 255, 0.5);
 `;

@@ -6,12 +6,15 @@ export const ContactItem = styled.li`
   padding: 10px 10px 10px 40px;
   width: 400px;
   justify-content: space-between;
-  border: 1px solid black;
+  border: none;
   border-radius: 4px;
-  background-color: #aab7be;
+  background-color: #222;
+  box-shadow: rgba(0, 255, 255, 0.5) 0px 1px 2px,
+    rgba(0, 255, 255, 0.5) 0px 2px 4px, rgba(0, 255, 255, 0.5) 0px 4px 8px,
+    rgba(0, 255, 255, 0.5) 0px 8px 16px 10px;
 
   &:not(:last-child) {
-    margin-bottom: 4px;
+    margin-bottom: 5px;
   }
 `;
 

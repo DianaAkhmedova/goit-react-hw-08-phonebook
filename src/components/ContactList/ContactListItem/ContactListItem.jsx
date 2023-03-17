@@ -1,21 +1,31 @@
 import PropTypes from 'prop-types';
+import LetteredAvatar from 'react-lettered-avatar';
 import { useDispatch } from 'react-redux';
 
 import { fetchDeleteContact } from 'redux/contacts/contacts-operations';
 
-import { ContactItem, ContactInfo, RemoveBtn } from './ContactListItem.styled';
+import Button from 'shared/components/Button/Button';
+
+import { ContactItem, ContactInfo } from './ContactListItem.styled';
 
 const ContactListItem = ({ id, name, number, type }) => {
   const dispatch = useDispatch();
 
   return (
     <ContactItem>
+      <LetteredAvatar
+        name={name}
+        size={40}
+        radius={50}
+        color="#fff"
+        backgroundColor="#00a2a9"
+      />
       <ContactInfo>
         {name}: {number}
       </ContactInfo>
-      <RemoveBtn onClick={() => dispatch(fetchDeleteContact(id))} type={type}>
+      <Button onClick={() => dispatch(fetchDeleteContact(id))} type={type}>
         Delete
-      </RemoveBtn>
+      </Button>
     </ContactItem>
   );
 };

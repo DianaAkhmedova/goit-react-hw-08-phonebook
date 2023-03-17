@@ -1,20 +1,22 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
+  position: fixed;
+  width: 100%;
   padding: 14px 0;
-  background-color: #fafafb;
-  border-bottom: 1px solid #ececec;
-  box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
-    0px 2px 1px rgb(0 0 0 / 20%);
+  background-color: #000519;
+  box-shadow: rgba(0, 255, 255, 0.5) 0px 1px 2px,
+    rgba(0, 255, 255, 0.5) 0px 2px 4px, rgba(0, 255, 255, 0.5) 0px 4px 8px,
+    rgba(0, 255, 255, 0.5) 0px 8px 20px 8px;
 `;
 
 export const Main = styled.main`
-  padding: 0px 0;
+  background-color: #000519;
+  height: 1000px;
 `;
 
 export const Section = styled.section`
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding: 105px 0;
 `;
 
 export const Container = styled.div`
@@ -22,4 +24,14 @@ export const Container = styled.div`
   padding-right: 70px;
   margin-left: auto;
   margin-right: auto;
+`;
+
+export const Img = styled.img`
+  width: 600px;
+  height: 500px;
+`;
+
+export const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;

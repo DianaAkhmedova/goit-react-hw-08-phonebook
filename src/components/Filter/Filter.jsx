@@ -1,13 +1,12 @@
 import { useSelector, useDispatch } from 'react-redux';
 
+import Form from 'shared/components/Form/Form';
+import TextField from 'shared/components/TextField/TextField';
+
 import { getFilter } from 'redux/filter/filter-selectors';
 import { setFilter } from 'redux/filter/filter-slice';
 
-import {
-  Form,
-  FormLabel,
-  FormInput,
-} from 'components/ContactForm/ContactForm.styled';
+import fields from './fields';
 
 const Filter = () => {
   const filterValue = useSelector(getFilter);
@@ -18,17 +17,13 @@ const Filter = () => {
 
   return (
     <Form>
-      <FormLabel>
-        Find contacts by name
-        <FormInput
-          type="text"
-          name="contactName"
-          value={filterValue}
-          placeholder="Enter name"
-          onChange={handleChangeFilter}
-        />
-      </FormLabel>
+      <TextField
+        value={filterValue}
+        handleChange={handleChangeFilter}
+        {...fields.contactName}
+      />
     </Form>
   );
 };
+
 export default Filter;

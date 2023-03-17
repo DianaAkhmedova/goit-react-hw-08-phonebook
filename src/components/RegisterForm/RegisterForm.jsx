@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types';
+
+import Form from 'shared/components/Form/Form';
 import TextField from 'shared/components/TextField/TextField';
 import Button from 'shared/components/Button/Button';
-import Form from 'shared/components/Form/Form';
 
 import useForm from 'shared/hooks/useForm';
 
@@ -29,3 +31,7 @@ const RegisterForm = ({ onSubmit }) => {
 };
 
 export default RegisterForm;
+
+RegisterForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};

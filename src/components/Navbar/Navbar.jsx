@@ -18,13 +18,11 @@ const Navbar = () => {
         </Link>
         <NavList>
           <Item>
-            <Link to={'/'}>Home page</Link>
+            <Link to={'/'}>Phonebook</Link>
           </Item>
-          {isLogin && (
-            <Item>
-              <Link to={'/contacts'}>My contacts</Link>
-            </Item>
-          )}
+          <Item>
+            <Link to={'/contacts'}>My contacts</Link>
+          </Item>
         </NavList>
       </PageNav>
       {isLogin ? <UserMenu /> : <Auth />}
